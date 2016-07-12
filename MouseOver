@@ -1,0 +1,49 @@
+package Actions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseOver {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Downloads\\Selenium_Drivers\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("http://www.hamleys.com/");
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		Actions action = new Actions(driver);
+		
+		WebElement preschool = driver.findElement(By.xpath(".//*[@id='nav']/ul/li[2]/a"));
+		
+		WebElement bathtoys = driver.findElement(By.xpath(".//*[@id='12588']/a"));
+	    
+		action.moveToElement(preschool).perform();
+		
+		bathtoys.click();
+		
+		Thread.sleep(4000);
+		
+		System.out.println("Title of the Page is " +driver.getTitle());
+		
+		driver.quit();
+		
+		
+		
+		
+
+	}
+
+}
