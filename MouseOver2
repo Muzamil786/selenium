@@ -1,0 +1,40 @@
+package Actions;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseOver2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = new FirefoxDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("http://toolsqa.com/");
+		
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		WebElement tutorial_link = driver.findElement(By.xpath(".//*[@id='main-nav']/li[2]/a/span"));
+		
+		Actions action = new Actions(driver);
+		
+		action.moveToElement(tutorial_link).perform();
+		
+		Thread.sleep(4000);
+		
+		driver.findElement(By.xpath(".//*[@id='main-nav']/li[2]/ul/li[2]/a/span")).click();
+		
+		System.out.println("Title of the Page is" +driver.getTitle());
+		
+		driver.quit();
+		
+	}
+
+}
