@@ -1,0 +1,26 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class AssertDemo {
+	
+	@Test(description = "This TC verify Home page Title")
+	
+	public void test1(){
+		
+		Assert.assertEquals("Toolsqa", "Toolsqa.com");
+	}
+	
+	@Test( description = "This TC verify dropdown Count")
+	public void test2(){
+		
+		Assert.assertEquals(10, 10, "Drop down Verification failed");
+	}
+
+	@Test(description = "This TC verify whether chaeck box is enabled")
+	
+	public void test3(){
+		
+		Assert.assertTrue(true);
+	}
+}
+
